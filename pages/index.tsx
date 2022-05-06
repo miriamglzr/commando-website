@@ -6,6 +6,7 @@ import { Page } from "../Components/Page";
 const Home: NextPage = () => {
 	return (
 		<Page home>
+			<title>Mando</title>
 			<h4>Home</h4>
 
 			<div className="container">

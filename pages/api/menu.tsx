@@ -22,6 +22,10 @@ export default function handler(
 	res: NextApiResponse<Product[]>
 ) {
 	if (req.method === "POST" && req.body) {
+		const product = req.body;
+		product.product_id = products.length + 1;
+		product.image =
+			"https://as2.ftcdn.net/v2/jpg/02/73/82/69/1000_F_273826938_g3zTc4k5UtVsYDgZnPyVkzR6WEmyeuhB.jpg";
 		globalThis.products.push(req.body);
 		res.status(201).json(products);
 	} else {

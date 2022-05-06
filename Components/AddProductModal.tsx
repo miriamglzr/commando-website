@@ -13,6 +13,7 @@ import {
 import { allergenIcons } from "../database/allergens";
 //import UploadImage from "./UploadImage";
 import { checkProduct } from "./checkProduct";
+import { useAppCtx } from "../context.tsx/Products";
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -29,6 +30,8 @@ export default function AddProductModal() {
 	const [isModalVisible, setIsModalVisible] = useState(false);
 	const [confirmLoading, setConfirmLoading] = useState(false);
 	const [form] = Form.useForm();
+	const productContext = useAppCtx();
+
 	//const { buttonName, updateProduct } = props;
 	const [loading, setLoading] = useState(false);
 	// const { menu } = props;
@@ -38,6 +41,9 @@ export default function AddProductModal() {
 		console.log(values);
 		let verified = await checkProduct.add(values);
 		console.log(verified);
+		if (typeof verified !== "string") {
+			productContext?.onProductCreated(verified);
+		}
 		await enterLoading();
 		//	await handleOk();
 	};
