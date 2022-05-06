@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 // import { Header } from "./Header";
 import Layout from "./Layout";
-//import { Transition } from "./Transition";
+import { Transition } from "./Transition";
 
 interface PageProps {
 	children: ReactNode;
@@ -11,7 +11,7 @@ interface PageProps {
 export const Page = ({ children, home }: PageProps) => (
 	<Layout home>
 		{/* <Header /> */}
-		{children}
-		{/* <Transition>{children}</Transition> */}
+
+		<Transition>{children}</Transition>
 	</Layout>
 );
