@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-//import Layout from "../Components/Layout";
 import { Button } from "antd";
 import Link from "next/link";
 import { Page } from "../Components/Page";

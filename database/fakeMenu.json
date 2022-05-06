@@ -1,0 +1,62 @@
+[
+	{
+		"product_id": 1,
+		"name": "1kg tortillas de maíz azul",
+		"price": 9.0,
+		"section_id": 1,
+		"description": "Tortillas hechas a mano con maíz azul nixtamalizado",
+		"allergens": [],
+		"diet": ["vegan", "vegetarian", "healthy"],
+		"spicy_level": 0,
+		"type": "food",
+		"image": "https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2021/05/como-hacer-tortillas-azules.jpg"
+	},
+	{
+		"product_id": 2,
+		"name": "1kg tortillas de maíz blanco",
+		"price": 8.0,
+		"section_id": 1,
+		"description": "Tortillas hechas a mano con maíz blanco nixtamalizado",
+		"allergens": [],
+		"diet": ["vegan", "vegetarian", "healthy"],
+		"spicy_level": 0,
+		"type": "food",
+		"image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.elespanol.com%2Fcocinillas%2Frecetas%2Fpanes-y-otras-masas%2F20190829%2Ftortillas-tacos-nachos-caseros-receta-facil-rapida%2F1001700879897_30.html&psig=AOvVaw3pslN0IUMuRbxmgAHGFVqz&ust=1634721824549000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCJjOnr-T1vMCFQAAAAAdAAAAABAD"
+	},
+	{
+		"product_id": 3,
+		"name": "Docena de sopes",
+		"price": 5.0,
+		"section_id": 1,
+		"description": "Tortilla ligeramente más ancha con bordes (pellizcada) para colocar dentro distintos ingredientes",
+		"allergens": [],
+		"diet": ["vegan", "vegetarian", "healthy"],
+		"spicy_level": 0,
+		"type": "food",
+		"image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVOCTbXKC-KDHl9XueaFnU0Ic3l0y7TCdwSA&usqp=CAU"
+	},
+	{
+		"product_id": 4,
+		"name": "Decena de gorditas",
+		"price": 20.0,
+		"section_id": 1,
+		"description": "Antojito mexicano a base de maíz nixtamalizado. Relleno de chicharrón prensado o requesón o papa o frijol",
+		"allergens": [],
+		"diet": ["vegan", "vegetarian"],
+		"spicy_level": 0,
+		"type": "food",
+		"image": "http://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2018/05/receta-facil-de-chicharron-con-masa.jpg"
+	},
+	{
+		"product_id": 5,
+		"name": "Decena de tlacoyos",
+		"price": 20.0,
+		"section_id": 1,
+		"description": "Antojito mexicano (de forma ovalada) a base de maíz nixtamalizado. Relleno de chicharrón prensado o requesón o papa o frijol",
+		"allergens": [],
+		"diet": ["vegan", "vegetarian"],
+		"spicy_level": 0,
+		"type": "food",
+		"image": "https://laantojadera.com/media/recetas/e492ac_13_TlacoyosFrijol.jpg"
+	}
+]

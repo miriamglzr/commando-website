@@ -10,8 +10,6 @@ interface PageProps {
 
 export const Page = ({ children, home }: PageProps) => (
 	<Layout home>
-		{/* <Header /> */}
-
 		<Transition>{children}</Transition>
 	</Layout>
 );
