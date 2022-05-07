@@ -8,10 +8,10 @@ body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-	/* background: rgba(196, 196, 196, 0.3); */
+	background: rgba(196, 196, 196, 0.3);
+	overflow-x: hidden;
 }
 .App {
-	background: rgba(196, 196, 196, 0.3);
 	flex-direction: column;
 	justify-content: center;
 	min-height: 100vh;
@@ -39,7 +39,14 @@ a :hover {
 .ant-modal-body {
 	padding-top: 0;
 }
+.ant-card-body {
+	padding: 10px;
+	min-height: 217px;
+}
 .ant-col-8 {
 	display: flex;
 	justify-content: flex-start;
+}
+.ant-btn {
+	white-space: none;
 }

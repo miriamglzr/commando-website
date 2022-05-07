@@ -14,8 +14,8 @@ import { allergenIcons } from "../database/allergens";
 //import DeleteProduct from './DeleteProduct';
 //import UploadImage from "./UploadImage";
 import { checkProduct } from "./checkProduct";
-// import dish from '../../img/dish.png';
 import ItemCard from "./ItemCard";
+import { useAppCtx } from "../context.tsx/Products";
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -32,31 +32,27 @@ function EditProduct({ data }: { data: any }) {
 	const [isModalVisible, setIsModalVisible] = useState(false);
 	const [confirmLoading, setConfirmLoading] = useState(false);
 	const [form] = Form.useForm();
-	//const { buttonName, updateProduct } = props;
 	const [loading, setLoading] = useState(false);
-	// const { menu } = props;
-
-	// Add a product
-	const onFinish = async (values: any) => {
-		console.log(values);
-		let verified = await checkProduct.add(values);
-		console.log(verified);
-		await enterLoading();
-		await handleOk();
-	};
+	const productContext = useAppCtx();
 
 	// Update a product
 	const onUpdate = async (values: any) => {
+		console.log("update");
 		await console.log(values);
 
-		let updatedProduct = values;
+		let updatedProduct = data;
 		// update just changes
 		for (const key in values) {
 			if (values[key]) {
 				updatedProduct[key] = values[key];
 			}
 		}
-		//await updateProduct(updatedProduct); //this is only sending new changes not with all initial object values
+		let verified = await checkProduct.add(updatedProduct);
+		console.log(verified);
+		if (typeof verified !== "string") {
+			await productContext?.onProductUpdated(verified);
+		}
+
 		await enterLoading();
 		await handleOk();
 	};
@@ -123,12 +119,7 @@ function EditProduct({ data }: { data: any }) {
 				footer={null}
 				confirmLoading={confirmLoading}
 			>
-				<Form
-					{...layout}
-					form={form}
-					name="control-hooks"
-					//onFinish={!buttonName ? onFinish : onUpdate}
-				>
+				<Form {...layout} form={form} name="control-hooks" onFinish={onUpdate}>
 					<Form.Item
 						name="name"
 						label="Product Name"
@@ -267,7 +258,7 @@ function EditProduct({ data }: { data: any }) {
 					</Form.Item>
 					<Form.Item name="spicy_level" label="Spicy Level">
 						<Radio.Group onChange={onChange} style={{ width: "100%" }}>
-							<Radio value="food">😋</Radio>
+							<Radio value={0}>😋</Radio>
 							<Radio value={1}>🌶️</Radio>
 							<Radio value={2}>🌶️🌶️</Radio>
 							<Radio value={3}>🌶️🌶️🌶️</Radio>
@@ -289,10 +280,6 @@ function EditProduct({ data }: { data: any }) {
 					</Form.Item>
 				</Form>
 			</Modal>
-
-			{/* );
-					})}
-			</Row> */}
 		</div>
 	);
 }

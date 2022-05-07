@@ -22,10 +22,10 @@ const peppers = (value: number) => {
 			return <span className="ml-2">🌶️</span>;
 
 		case 2:
-			return <span className="row ml-2">🌶️🌶️</span>;
+			return <span className="row ml-3">🌶️🌶️</span>;
 
 		case 3:
-			return <span className="row ml-2">🌶️🌶️🌶️</span>;
+			return <span className="row text-right">🌶️🌶️🌶️</span>;
 		default:
 			break;
 	}
@@ -66,7 +66,11 @@ export default function ItemCard({ item }: { item: Product }) {
 		>
 			<div style={{ width: "100%" }}>
 				<Avatar
-					src={item.image}
+					src={
+						item.image
+							? item.image
+							: "https://as2.ftcdn.net/v2/jpg/02/73/82/69/1000_F_273826938_g3zTc4k5UtVsYDgZnPyVkzR6WEmyeuhB.jpg"
+					}
 					alt={item.name}
 					className="item-img"
 					//fallback="https://as2.ftcdn.net/v2/jpg/02/73/82/69/1000_F_273826938_g3zTc4k5UtVsYDgZnPyVkzR6WEmyeuhB.jpg"
@@ -76,23 +80,28 @@ export default function ItemCard({ item }: { item: Product }) {
 			<Card.Meta
 				title={item.name}
 				description={
-					<div className="row">
-						<div className="col item-col-description">
-							<div className="row">
-								<span className="row item-name">
-									{peppers(item.spicy_level)}
-								</span>
-
-								<span>{item.price} €</span>
-							</div>
-
-							<p className="item-description">
-								{item.description.length > 50
-									? item.description.substring(0, 50).concat("...")
-									: item.description}
-							</p>
-							<span>{itemAllergens(item.allergens)}</span>
+					<div
+						className="col "
+						style={{ width: "180px", whiteSpace: "normal" }}
+					>
+						<div className="row">
+							<span
+								className="col-5 d-flex justify-content-center"
+								style={{ right: 0, whiteSpace: "nowrap" }}
+							>
+								{peppers(item.spicy_level)}
+							</span>
+							<span className="col-4">{itemAllergens(item.allergens)}</span>
+							<span className="col-3 d-flex justify-content-end">
+								{item.price} €
+							</span>
 						</div>
+
+						<p className="item-description" style={{ fontSize: "11px" }}>
+							{item.description.length > 50
+								? item.description.substring(0, 50).concat("...")
+								: item.description}
+						</p>
 					</div>
 				}
 			/>

@@ -51,8 +51,8 @@ export default function Layout({ children, home }: DashboardLayoutProps) {
 				</Link>
 			</Sidenav>
 			<div className="row d-flex justify-content-between">
-				<div className="col-2" />
-				<div className="col-10">
+				<div className="col" style={{ maxWidth: "160px" }} />
+				<div className="col">
 					<div style={{ minHeight: "91vh" }}>{children}</div>
 					<footer className="footer">
 						<p className="small">made at Harbour.Space</p>

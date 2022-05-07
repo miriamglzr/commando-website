@@ -20,8 +20,6 @@ export const checkProduct = {
 		}
 		if (!product.type) {
 			product.type = "food";
-		} else if (product.type) {
-			product.type = product.type[0];
 		}
 		if (!product.spicy_level) {
 			product.spicy_level = 0;
@@ -29,17 +27,5 @@ export const checkProduct = {
 			product.spicy_level = Number(product.spicy_level);
 		}
 		return await product;
-	},
-	post: async function (body: Product) {
-		//(url, body, token = false) {
-		// const config = {
-		//   headers: { 'Content-type': 'application/json' },
-		// };
-		// if (token) {
-		//   if (localStorage.token) {
-		//     setAuthToken(localStorage.token);
-		//   }
-		// }
-		return await body; //axios.post(baseUrl + url, body, config);
 	},
 };

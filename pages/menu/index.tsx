@@ -31,8 +31,6 @@ interface IndexMenuProps {
 // }
 
 export default function Menu() {
-	// console.log("products", products);
-	// console.log(products);
 	const [products, setProducts] = useState<Product[] | undefined>(undefined);
 	const productContext = useAppCtx();
 	useEffect(() => {
@@ -48,28 +46,32 @@ export default function Menu() {
 
 	return (
 		<Page>
-			<div className="row d-flex">
-				<div className="col d-flex justify-content-start">
-					<Link href="/">
-						<a>Go back</a>
-					</Link>
+			<div className="col">
+				<div className="row d-flex container">
+					<div className="col d-flex justify-content-start">
+						<Link href="/">
+							<a>Go back</a>
+						</Link>
+					</div>
+					<h4 className="col">Menu</h4>
+					<div className="col d-flex justify-content-end">
+						<AddProductModal />
+					</div>
 				</div>
-				<h4 className="col">Menu</h4>
-				<div className="col d-flex justify-content-end">
-					<AddProductModal />
+				<div className="container row" style={{ padding: 0, maxWidth: "90%" }}>
+					<div
+						className="container  row mt-2 d-flex justify-content-between"
+						style={{ height: 200, display: "block" }}
+					>
+						{products?.map((product: Product, i: number) => {
+							return (
+								<div key={i} className="col-md-3 col-sm-6 col-xs-12 m-2">
+									<EditProduct data={product} />
+								</div>
+							);
+						})}
+					</div>
 				</div>
-			</div>
-			<div
-				className="container row mt-2 d-flex justify-content-between"
-				style={{ height: 200, display: "block" }}
-			>
-				{products?.map((product: Product, i: number) => {
-					return (
-						<div key={i} className="col-md-3 col-sm-6 col-xs-12 m-2">
-							<EditProduct data={product} />
-						</div>
-					);
-				})}
 			</div>
 		</Page>
 	);

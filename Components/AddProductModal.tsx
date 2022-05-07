@@ -14,6 +14,7 @@ import { allergenIcons } from "../database/allergens";
 //import UploadImage from "./UploadImage";
 import { checkProduct } from "./checkProduct";
 import { useAppCtx } from "../context.tsx/Products";
+import { AddProduct } from "./layout.styles";
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -88,18 +89,12 @@ export default function AddProductModal() {
 
 	return (
 		<div className="m-2">
-			{/* <Row gutter={16}> */}
-			{/* {menu &&
-					menu.length &&
-					menu.map((data: Product, i: number) => {
-						return ( */}
-
-			<Button
+			<AddProduct
 				onClick={showModal}
 				style={{ padding: 0, width: 60, border: "none" }}
 			>
 				+
-			</Button>
+			</AddProduct>
 
 			<Modal
 				title={"Add Product"}

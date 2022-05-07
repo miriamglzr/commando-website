@@ -22,6 +22,7 @@ export type AppContextInterface = {
 	onProductCreated: (products: Product) => void;
 	getProducts: () => void;
 	updateProducts: () => void;
+	onProductUpdated: (products: Product) => void;
 };
 
 const AppCtx = createContext<AppContextInterface | null>(null);
@@ -36,6 +37,15 @@ export const AppCtxProvider = ({ children }: { children: ReactNode }) => {
 
 		const url = `/api/menu`;
 		const data = await axios.post(url, product);
+		console.log(data);
+		setProducts(data?.data);
+	};
+	const onProductUpdated = async (product: Product) => {
+		console.log("update", product);
+		console.log(product);
+
+		const url = `/api/menu`;
+		const data = await axios.put(url, product);
 		console.log(data);
 		setProducts(data?.data);
 	};
@@ -54,7 +64,13 @@ export const AppCtxProvider = ({ children }: { children: ReactNode }) => {
 
 	return (
 		<AppCtx.Provider
-			value={{ products, onProductCreated, getProducts, updateProducts }}
+			value={{
+				products,
+				onProductCreated,
+				getProducts,
+				updateProducts,
+				onProductUpdated,
+			}}
 		>
 			{children}
 		</AppCtx.Provider>
