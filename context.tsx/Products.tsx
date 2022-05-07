@@ -1,6 +1,5 @@
 import axios from "axios";
 import { createContext, ReactNode, useContext, useState } from "react";
-import useSWR from "swr";
 
 export type Product = {
 	product_id: number;
@@ -35,7 +34,7 @@ export const AppCtxProvider = ({ children }: { children: ReactNode }) => {
 		console.log(product);
 		setProducts([...products, product]);
 
-		const url = `/api/menu`;
+		const url = `/api/products`;
 		const data = await axios.post(url, product);
 		console.log(data);
 		setProducts(data?.data);
@@ -44,14 +43,14 @@ export const AppCtxProvider = ({ children }: { children: ReactNode }) => {
 		console.log("update", product);
 		console.log(product);
 
-		const url = `/api/menu`;
+		const url = `/api/products`;
 		const data = await axios.put(url, product);
 		console.log(data);
 		setProducts(data?.data);
 	};
 
 	const getProducts = async () => {
-		const url = `/api/menu`;
+		const url = `/api/products`;
 		const data = await axios.get(url);
 		console.log(data);
 		setProducts(data?.data);

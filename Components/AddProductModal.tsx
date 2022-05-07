@@ -88,7 +88,7 @@ export default function AddProductModal() {
 	};
 
 	return (
-		<div className="m-2">
+		<div className="mt-2">
 			<AddProduct
 				onClick={showModal}
 				style={{ padding: 0, width: 60, border: "none" }}

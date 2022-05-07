@@ -1,14 +1,17 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ReactNode } from "react";
-import { Navbar, NavbarLogo, ButtonCol, Sidenav } from "./layout.styles";
-import User from "./User";
-// import {
-// 	HomeOutlined,
-// 	CompassOutlined,
-// 	PlayCircleOutlined,
-// 	DiffOutlined,
-// 	HddOutlined,
-// } from "@ant-design/icons";
+import { ReactNode, useRef, useState } from "react";
+import { NavbarLogo, ButtonCol, Sidenav } from "./layout.styles";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+
+const Spoon = styled(Image)`
+	position: absolute;
+	z-index: -1;
+	transform: translateX(-60px);
+	width: 100%;
+	height: 100%;
+`;
 
 type DashboardLayoutProps = {
 	children: ReactNode;
@@ -16,6 +19,9 @@ type DashboardLayoutProps = {
 };
 
 export default function Layout({ children, home }: DashboardLayoutProps) {
+	const navRef = useRef<HTMLElement | null>(null);
+	const [y, setY] = useState(-83);
+
 	return (
 		<div className="App">
 			{!home && (
@@ -25,19 +31,21 @@ export default function Layout({ children, home }: DashboardLayoutProps) {
 					</Link>
 				</div>
 			)}
-			{/* <Navbar className="navbar navbar-light d-flex justify-content-between">
-				<Link className="navbar-brand navbar-logo" href="/">
-					<NavbarLogo>MANDO</NavbarLogo>
-				</Link>
-				<User />
-			</Navbar> */}
 
 			<Sidenav className="sidenav" style={{ flexDirection: "column" }}>
 				<Link href="/">
 					<NavbarLogo>MANDO</NavbarLogo>
 				</Link>
-				<Link href="/">
-					<ButtonCol href="/" className="row">
+				<Link
+					href="/"
+					//onMouseEnter={() => console.log("enter")}
+					// onMouseEnter={(event) => setY(event.currentTarget.offsetTop)}
+				>
+					<ButtonCol
+						href="/"
+						className="row"
+						onMouseEnter={(event) => setY(event.currentTarget.offsetTop - 150)}
+					>
 						{/* <HomeOutlined
 							style={{ fontSize: 25, margin: 8, cursor: "pointer" }}
 						/> */}
@@ -45,10 +53,33 @@ export default function Layout({ children, home }: DashboardLayoutProps) {
 					</ButtonCol>
 				</Link>
 				<Link href="/menu">
-					<ButtonCol href="/menu" className="row">
+					<ButtonCol
+						href="/menu"
+						className="row"
+						onMouseEnter={(event) => setY(event.currentTarget.offsetTop - 150)}
+					>
 						Menu
 					</ButtonCol>
 				</Link>
+				<motion.div
+					initial={{ y: navRef.current?.offsetTop, opacity: 0 }}
+					animate={{ y: y, opacity: 1 }}
+					style={{
+						marginLeft: 10,
+						justifyContent: "flex-start",
+						display: "flex",
+						width: "30px",
+					}}
+					// transition={{ type: "spring", duration: 0.5 }}
+				>
+					<Image
+						src="/spoon.png"
+						alt="spoon"
+						className="spoon"
+						width={30}
+						height={30}
+					/>
+				</motion.div>
 			</Sidenav>
 			<div className="row d-flex justify-content-between">
 				<div className="col" style={{ maxWidth: "160px" }} />

@@ -97,5 +97,6 @@ export const AddProduct = styled(Button)`
 	&:focus {
 		background: black;
 		color: white;
+		outline: none !important;
 	}
 `;

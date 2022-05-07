@@ -106,6 +106,7 @@ function EditProduct({ data }: { data: any }) {
 			<Button
 				onClick={showModal}
 				style={{ padding: 0, width: 100, border: "none" }}
+				type="text"
 			>
 				<ItemCard item={data} />
 			</Button>

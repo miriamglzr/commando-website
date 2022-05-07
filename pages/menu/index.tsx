@@ -46,15 +46,10 @@ export default function Menu() {
 
 	return (
 		<Page>
+			<title>Mando | Menu</title>
 			<div className="col">
-				<div className="row d-flex container">
-					<div className="col d-flex justify-content-start">
-						<Link href="/">
-							<a>Go back</a>
-						</Link>
-					</div>
-					<h4 className="col">Menu</h4>
-					<div className="col d-flex justify-content-end">
+				<div className="d-flex container justify-content-end">
+					<div className="d-flex justify-content-end">
 						<AddProductModal />
 					</div>
 				</div>
