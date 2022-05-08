@@ -20,12 +20,12 @@ export default function Menu() {
 	return (
 		<Page>
 			<title>Mando | Menu</title>
-			<div className="col">
-				<div className="row d-flex container">
+			<div className="container mw-100">
+				<div className="row">
 					<div className="col d-flex justify-content-start mt-4">
 						<h4>Menu</h4>
 					</div>
-					<div className="col d-flex justify-content-end">
+					<div className="col d-flex justify-content-end mt-4">
 						<AddProductModal />
 					</div>
 				</div>

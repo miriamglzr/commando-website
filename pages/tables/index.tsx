@@ -80,9 +80,7 @@ export default function Tables() {
 						<h4>Tables</h4>
 					</div>
 					<div className="col  d-flex justify-content-end mt-4">
-						<AddProduct className="fab" onClick={addItem}>
-							+
-						</AddProduct>
+						<AddProduct onClick={addItem}>+</AddProduct>
 					</div>
 				</div>
 				<div className="container table-grid col ">
