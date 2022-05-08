@@ -15,7 +15,7 @@ const dashboard = [
 	},
 	{
 		title: "Tables",
-		link: "/",
+		link: "/tables",
 		color: "rgba(247, 210, 82,0.7)",
 		description: "",
 		value: 3,
@@ -47,7 +47,7 @@ const Home: NextPage = () => {
 				<div className="row" style={{ width: 480 }}>
 					{dashboard.map((option, i) => {
 						return (
-							<Link href="/menu">
+							<Link href={option.link}>
 								<a className="col-md-6 col-sm-6 col-xs-12 ">
 									<Card
 										hoverable

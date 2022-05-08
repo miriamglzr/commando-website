@@ -78,6 +78,7 @@ a :hover {
 #outer-dropzone {
 	height: 400px;
 	min-width: 594px;
+	max-width: 655px;
 	margin: 38px;
 }
 
