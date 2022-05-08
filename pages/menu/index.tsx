@@ -9,7 +9,6 @@ export default function Menu() {
 	const productContext = useAppCtx();
 	useEffect(() => {
 		if (products === undefined) {
-			console.log("get products");
 			productContext?.getProducts();
 			setProducts(productContext?.products);
 		} else {

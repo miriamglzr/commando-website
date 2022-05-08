@@ -37,7 +37,6 @@ function EditProduct({ data }: { data: any }) {
 	// Update a product
 	const onUpdate = async (values: any) => {
 		await enterLoading();
-		console.log("update");
 		await console.log(values);
 
 		let updatedProduct = data;
@@ -48,7 +47,6 @@ function EditProduct({ data }: { data: any }) {
 			}
 		}
 		let verified = await checkProduct.add(updatedProduct);
-		console.log(verified);
 		if (typeof verified !== "string") {
 			await productContext?.onProductUpdated(verified);
 			await handleOk();
@@ -85,7 +83,7 @@ function EditProduct({ data }: { data: any }) {
 		setIsModalVisible(false);
 	};
 	const onChange = (checkedValues: any) => {
-		console.log("checked = ", checkedValues);
+		//	console.log("checked = ", checkedValues);
 	};
 
 	return (
@@ -122,7 +120,7 @@ function EditProduct({ data }: { data: any }) {
 					>
 						<Select
 							placeholder="Select an option and change input text above"
-							onChange={(option) => console.log(option)}
+							//onChange={(option) => console.log(option)}
 							allowClear
 							defaultValue={data ? data.section_id : ""}
 						>

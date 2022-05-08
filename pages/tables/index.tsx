@@ -42,16 +42,23 @@ const listVariants = {
 };
 export default function Tables() {
 	const constraintsRef = useRef(null);
+	const [rendered, setRendered] = useState(false);
+	const [items, setItems] = useState([]);
 
-	const [items, setItems] = useState(() => Array.from("12345"));
 	useEffect(() => {
 		const fetchData = async () => {
 			const { data } = await axios.get("/api/tables");
-			console.log(data);
+
 			setItems(data);
 		};
 		fetchData();
 	}, []);
+
+	useEffect(() => {
+		if (items.length > 0) {
+			setRendered(true);
+		}
+	}, [items]);
 
 	const addItem = () => {
 		items.length !== 72 && addTable();
@@ -68,12 +75,16 @@ export default function Tables() {
 		<Page>
 			<title>Mando | Tables</title>
 			<div className="container mw-100">
-				<div className="col d-flex justify-content-start mt-4">
-					<h4>Tables</h4>
+				<div className="row">
+					<div className="col d-flex justify-content-start mt-4">
+						<h4>Tables</h4>
+					</div>
+					<div className="col  d-flex justify-content-end mt-4">
+						<AddProduct className="fab" onClick={addItem}>
+							+
+						</AddProduct>
+					</div>
 				</div>
-				<AddProduct className="fab" onClick={addItem}>
-					+
-				</AddProduct>
 				<div className="container table-grid col ">
 					<div className="row">
 						<div id="outer-dropzone" className="dropzone" ref={constraintsRef}>
@@ -81,7 +92,7 @@ export default function Tables() {
 							<motion.div
 								className="content container row"
 								initial="hidden"
-								animate="visible"
+								animate={rendered ? "visible" : "hidden"}
 								variants={listVariants}
 								style={{ maxHeight: "400px" }}
 							>
