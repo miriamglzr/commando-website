@@ -11,7 +11,6 @@ import {
 	Radio,
 } from "antd";
 import { allergenIcons } from "../database/allergens";
-//import DeleteProduct from './DeleteProduct';
 //import UploadImage from "./UploadImage";
 import { checkProduct } from "./checkProduct";
 import ItemCard from "./ItemCard";
@@ -87,23 +86,10 @@ function EditProduct({ data }: { data: any }) {
 	};
 	const onChange = (checkedValues: any) => {
 		console.log("checked = ", checkedValues);
-		// console.log (data.allergens);
-		// console.log (allergenIcons);
-		// allergenIcons.map (allergen => {
-		//   return data.allergens.includes (allergen.name)
-		//     ? console.log (allergen)
-		//     : false;
-		// });
 	};
 
 	return (
 		<div className="m-2" style={{ height: 210, width: "auto", padding: 0 }}>
-			{/* <Row gutter={16}> */}
-			{/* {menu &&
-					menu.length &&
-					menu.map((data: Product, i: number) => {
-						return ( */}
-
 			<Button
 				onClick={showModal}
 				style={{ padding: 0, width: 100, border: "none" }}
@@ -141,17 +127,6 @@ function EditProduct({ data }: { data: any }) {
 							defaultValue={data ? data.section_id : ""}
 						>
 							<Option value={1}>De Maíz</Option>
-							{/* {sections &&
-														sections.length &&
-														sections.map((section, i) => {
-															let sectionLowerCase = section.name;
-															sectionLowerCase.toLocaleLowerCase();
-															return (
-																<Option value={sectionLowerCase} key={i}>
-																	{sectionLowerCase}
-																</Option>
-															);
-														})} */}
 						</Select>
 					</Form.Item>
 					<Form.Item
@@ -198,18 +173,7 @@ function EditProduct({ data }: { data: any }) {
 						{/* prefix="€" */}
 					</Form.Item>
 					<Form.Item name="allergens" label="Allergens">
-						<Checkbox.Group
-							style={{ width: "100%" }}
-							onChange={onChange}
-							// defaultValue={
-							//   data && data.allergens && data.allergens.length
-							//     ? data.allergens
-							//     : ''
-							// }
-							// initialValue={
-							// 	data && data.allegens ? data.allergens : ""
-							// }
-						>
+						<Checkbox.Group style={{ width: "100%" }} onChange={onChange}>
 							<Row>
 								{allergenIcons.map((allergen, i) => {
 									return (
@@ -271,10 +235,6 @@ function EditProduct({ data }: { data: any }) {
 					</Form.Item>
 					<Form.Item {...tailLayout}>
 						<div className="modal-tail">
-							{/* <DeleteProduct
-                          product={data}
-                          closeProductWindow={handleCancel}
-                        /> */}
 							<Button type="primary" htmlType="submit" loading={loading}>
 								Update Product
 							</Button>

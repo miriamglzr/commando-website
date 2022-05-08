@@ -100,3 +100,16 @@ export const AddProduct = styled(Button)`
 		outline: none !important;
 	}
 `;
+
+export const TableDiv = styled.div`
+	justify-self: center;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 100%;
+	border-radius: 2px;
+	margin: 2px;
+	color: rgba(0, 0, 0, 0.85);
+	font-size: 22px;
+`;

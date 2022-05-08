@@ -43,36 +43,29 @@ export const AppCtxProvider = ({ children }: { children: ReactNode }) => {
 	});
 
 	const onProductCreated = async (product: Product) => {
-		console.log("add", product);
-		console.log(product);
 		setProducts([...products, product]);
 
 		const url = `/products`;
 		const data = await axiosConfig.post(url, product);
 		await sendNotification("Product Created", "success");
-		console.log(data);
+
 		setProducts(data?.data);
 	};
 	const onProductUpdated = async (product: Product) => {
-		console.log("update", product);
-		console.log(product);
-
 		const url = `/products`;
 		const data = await axiosConfig.put(url, product);
 		await sendNotification("Product Updated", "success");
-		console.log(data);
+
 		setProducts(data?.data);
 	};
 
 	const getProducts = async () => {
 		const url = `/products`;
 		const data = await axiosConfig.get(url);
-		console.log(data);
 		setProducts(data?.data);
 	};
 
 	const updateProducts = () => {
-		console.log("update");
 		return products;
 	};
 	const sendNotification = (notification: string, severity: string) => {

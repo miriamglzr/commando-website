@@ -66,15 +66,6 @@ a :hover {
 	display: flex;
 }
 
-.anticon.ant-notification-notice-icon-warning {
-	color: white !important;
-	display: flex;
-}
-.ant-notification-notice-warning {
-	background-color: #faad14 !important;
-	color: white !important;
-}
-
 .anticon.ant-notification-notice-icon-error {
 	color: white !important;
 	display: flex;
@@ -82,4 +73,20 @@ a :hover {
 .ant-notification-notice-error {
 	background-color: #ff4d4f !important;
 	color: white !important;
+}
+
+#outer-dropzone {
+	height: 400px;
+	min-width: 594px;
+	margin: 38px;
+}
+
+.dropzone {
+	background-color: #f1f0f0;
+	border: dashed 4px transparent;
+	border-radius: 4px;
+	/* //margin: 10px auto 30px; */
+	padding: 10px;
+	color: rgb(211, 209, 209);
+	transition: background-color 0.3s;
 }

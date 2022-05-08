@@ -2,17 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ReactNode, useRef, useState } from "react";
 import { NavbarLogo, ButtonCol, Sidenav } from "./layout.styles";
-import styled from "styled-components";
 import { motion } from "framer-motion";
 import Notification from "./Notification";
-
-const Spoon = styled(Image)`
-	position: absolute;
-	z-index: -1;
-	transform: translateX(-60px);
-	width: 100%;
-	height: 100%;
-`;
 
 type DashboardLayoutProps = {
 	children: ReactNode;
@@ -21,7 +12,7 @@ type DashboardLayoutProps = {
 
 export default function Layout({ children, home }: DashboardLayoutProps) {
 	const navRef = useRef<HTMLElement | null>(null);
-	const [y, setY] = useState(-83);
+	const [y, setY] = useState(-133);
 
 	return (
 		<div className="App">
@@ -39,20 +30,27 @@ export default function Layout({ children, home }: DashboardLayoutProps) {
 				</Link>
 				<Link href="/">
 					<ButtonCol
-						href="/"
 						className="row"
-						onMouseEnter={(event) => setY(event.currentTarget.offsetTop - 150)}
+						onMouseEnter={(event) => setY(event.currentTarget.offsetTop - 197)}
 					>
 						Home
 					</ButtonCol>
 				</Link>
 				<Link href="/menu">
 					<ButtonCol
-						href="/menu"
 						className="row"
-						onMouseEnter={(event) => setY(event.currentTarget.offsetTop - 150)}
+						onMouseEnter={(event) => setY(event.currentTarget.offsetTop - 197)}
 					>
 						Menu
+					</ButtonCol>
+				</Link>
+				<Link href="/tables">
+					<ButtonCol
+						className="row"
+						onMouseEnter={(event) => setY(event.currentTarget.offsetTop - 197)}
+						onClick={(event) => setY(event.currentTarget.offsetTop - 197)}
+					>
+						Tables
 					</ButtonCol>
 				</Link>
 				<motion.div

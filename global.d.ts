@@ -13,4 +13,8 @@ type Product = {
 	// updatedAt: string;
 };
 
+type Table = string
+
+
 var products: Product[];
+var tables: Table[]

@@ -4,10 +4,6 @@ import EditProduct from "../../components/EditProductModal";
 import AddProductModal from "../../components/AddProductModal";
 import { useEffect, useState } from "react";
 
-interface IndexMenuProps {
-	products: Product[] | undefined;
-}
-
 export default function Menu() {
 	const [products, setProducts] = useState<Product[] | undefined>(undefined);
 	const productContext = useAppCtx();

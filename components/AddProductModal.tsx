@@ -37,9 +37,9 @@ export default function AddProductModal() {
 	// Add a product
 	const onFinish = async (values: any) => {
 		await enterLoading();
-		console.log(values);
+
 		let verified = await checkProduct.add(values);
-		console.log(verified);
+
 		if (typeof verified !== "string") {
 			productContext?.onProductCreated(verified);
 			await handleOk();
@@ -76,7 +76,7 @@ export default function AddProductModal() {
 		setIsModalVisible(false);
 	};
 	const onChange = (checkedValues: any) => {
-		console.log("checked = ", checkedValues);
+		//console.log("checked = ", checkedValues);
 	};
 
 	return (
@@ -112,17 +112,6 @@ export default function AddProductModal() {
 							allowClear
 						>
 							<Option value={1}>De Maíz</Option>
-							{/* {sections &&
-														sections.length &&
-														sections.map((section, i) => {
-															let sectionLowerCase = section.name;
-															sectionLowerCase.toLocaleLowerCase();
-															return (
-																<Option value={sectionLowerCase} key={i}>
-																	{sectionLowerCase}
-																</Option>
-															);
-														})} */}
 						</Select>
 					</Form.Item>
 					<Form.Item
@@ -224,10 +213,6 @@ export default function AddProductModal() {
 					</Form.Item>
 					<Form.Item {...tailLayout}>
 						<div className="modal-tail">
-							{/* <DeleteProduct
-                          product={data}
-                          closeProductWindow={handleCancel}
-                        /> */}
 							<Button type="primary" htmlType="submit" loading={loading}>
 								Add Product
 							</Button>
