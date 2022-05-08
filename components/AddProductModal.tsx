@@ -69,7 +69,7 @@ export default function AddProductModal() {
 			setIsModalVisible(false);
 			setConfirmLoading(false);
 			onReset();
-		}, 1500);
+		}, 2000);
 	};
 
 	const handleCancel = () => {
