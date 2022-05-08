@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { Card, Statistic } from "antd";
 import Link from "next/link";
-import { Page } from "../Components/Page";
+import { Page } from "../components/Page";
 
 const { Meta } = Card;
 const dashboard = [

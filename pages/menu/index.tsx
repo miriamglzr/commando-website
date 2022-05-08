@@ -1,34 +1,12 @@
-import { Button } from "antd";
-import {
-	InferGetStaticPropsType,
-	GetStaticProps,
-	GetServerSidePropsResult,
-} from "next";
-import { motion } from "framer-motion";
-import ItemCard from "../../Components/ItemCard";
-import { Page } from "../../Components/Page";
+import { Page } from "../../components/Page";
 import { useAppCtx } from "../../context.tsx/Context";
-import fakeMenu from "../../database/fakeMenu.json";
-import { AddProduct } from "../../Components/layout.styles";
-import Link from "next/link";
-import EditProduct from "../../Components/EditProductModal";
-import AddProductModal from "../../Components/AddProductModal";
-import axios from "axios";
-import useSWR from "swr";
+import EditProduct from "../../components/EditProductModal";
+import AddProductModal from "../../components/AddProductModal";
 import { useEffect, useState } from "react";
 
 interface IndexMenuProps {
 	products: Product[] | undefined;
 }
-
-// export async function getServerSideProps(): Promise<
-// 	GetServerSidePropsResult<IndexMenuProps>
-// > {
-// 	const productContext = useAppCtx();
-// 	return {
-// 		props: { products: productContext?.getProducts() },
-// 	};
-// }
 
 export default function Menu() {
 	const [products, setProducts] = useState<Product[] | undefined>(undefined);
