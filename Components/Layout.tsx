@@ -4,6 +4,7 @@ import { ReactNode, useRef, useState } from "react";
 import { NavbarLogo, ButtonCol, Sidenav } from "./layout.styles";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import Notification from "./Notification";
 
 const Spoon = styled(Image)`
 	position: absolute;
@@ -36,19 +37,12 @@ export default function Layout({ children, home }: DashboardLayoutProps) {
 				<Link href="/">
 					<NavbarLogo>MANDO</NavbarLogo>
 				</Link>
-				<Link
-					href="/"
-					//onMouseEnter={() => console.log("enter")}
-					// onMouseEnter={(event) => setY(event.currentTarget.offsetTop)}
-				>
+				<Link href="/">
 					<ButtonCol
 						href="/"
 						className="row"
 						onMouseEnter={(event) => setY(event.currentTarget.offsetTop - 150)}
 					>
-						{/* <HomeOutlined
-							style={{ fontSize: 25, margin: 8, cursor: "pointer" }}
-						/> */}
 						Home
 					</ButtonCol>
 				</Link>
@@ -70,7 +64,6 @@ export default function Layout({ children, home }: DashboardLayoutProps) {
 						display: "flex",
 						width: "30px",
 					}}
-					// transition={{ type: "spring", duration: 0.5 }}
 				>
 					<Image
 						src="/spoon.png"
@@ -84,7 +77,17 @@ export default function Layout({ children, home }: DashboardLayoutProps) {
 			<div className="row d-flex justify-content-between">
 				<div className="col" style={{ maxWidth: "160px" }} />
 				<div className="col">
-					<div style={{ minHeight: "91vh" }}>{children}</div>
+					<div
+						style={{
+							minHeight: "93vh",
+							display: "flex",
+							justifyContent: "center",
+							alignContent: "center",
+						}}
+					>
+						{children}
+						<Notification />
+					</div>
 					<footer className="footer">
 						<p className="small">made at Harbour.Space</p>
 					</footer>

@@ -15,7 +15,7 @@ type Product = {
 	image?: string;
 };
 
-globalThis.products = fakeMenu;
+globalThis.products = globalThis.products ?? fakeMenu;
 
 export default function handler(
 	req: NextApiRequest,

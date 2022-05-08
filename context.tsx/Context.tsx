@@ -1,5 +1,5 @@
-import axios from "axios";
 import { createContext, ReactNode, useContext, useState } from "react";
+import { axiosConfig } from "../utils/axiosConfig";
 
 export type Product = {
 	product_id: number;
@@ -15,27 +15,41 @@ export type Product = {
 	// createdAt: string;
 	// updatedAt: string;
 };
+export type AppNotification = {
+	message: string;
+	type: string;
+	open: boolean;
+};
 
 export type AppContextInterface = {
 	products: Product[];
+	appNotification: AppNotification;
 	onProductCreated: (products: Product) => void;
 	getProducts: () => void;
 	updateProducts: () => void;
 	onProductUpdated: (products: Product) => void;
+	sendNotification: (notification: string, severity: string) => void;
+	clearNotifications: () => void;
 };
 
 const AppCtx = createContext<AppContextInterface | null>(null);
 
 export const AppCtxProvider = ({ children }: { children: ReactNode }) => {
 	const [products, setProducts] = useState<Product[]>([]);
+	const [appNotification, setAppNotification] = useState<AppNotification>({
+		message: "",
+		type: "info",
+		open: false,
+	});
 
 	const onProductCreated = async (product: Product) => {
 		console.log("add", product);
 		console.log(product);
 		setProducts([...products, product]);
 
-		const url = `/api/products`;
-		const data = await axios.post(url, product);
+		const url = `/products`;
+		const data = await axiosConfig.post(url, product);
+		await sendNotification("Product Created", "success");
 		console.log(data);
 		setProducts(data?.data);
 	};
@@ -43,15 +57,16 @@ export const AppCtxProvider = ({ children }: { children: ReactNode }) => {
 		console.log("update", product);
 		console.log(product);
 
-		const url = `/api/products`;
-		const data = await axios.put(url, product);
+		const url = `/products`;
+		const data = await axiosConfig.put(url, product);
+		await sendNotification("Product Updated", "success");
 		console.log(data);
 		setProducts(data?.data);
 	};
 
 	const getProducts = async () => {
-		const url = `/api/products`;
-		const data = await axios.get(url);
+		const url = `/products`;
+		const data = await axiosConfig.get(url);
 		console.log(data);
 		setProducts(data?.data);
 	};
@@ -59,6 +74,21 @@ export const AppCtxProvider = ({ children }: { children: ReactNode }) => {
 	const updateProducts = () => {
 		console.log("update");
 		return products;
+	};
+	const sendNotification = (notification: string, severity: string) => {
+		setAppNotification({
+			message: notification,
+			type: severity,
+			open: true,
+		});
+	};
+
+	const clearNotifications = () => {
+		setAppNotification({
+			message: "",
+			type: "info",
+			open: false,
+		});
 	};
 
 	return (
@@ -69,6 +99,9 @@ export const AppCtxProvider = ({ children }: { children: ReactNode }) => {
 				getProducts,
 				updateProducts,
 				onProductUpdated,
+				sendNotification,
+				clearNotifications,
+				appNotification,
 			}}
 		>
 			{children}

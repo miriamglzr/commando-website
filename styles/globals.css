@@ -50,3 +50,36 @@ a :hover {
 .ant-btn {
 	white-space: none;
 }
+.ant-notification-notice .notification {
+	justify-content: space-between !important;
+}
+.ant-notification-notice-message {
+	justify-content: space-between !important;
+	color: white !important;
+}
+.ant-notification-notice-success {
+	background-color: #52c41a !important;
+	color: white !important;
+}
+.anticon.ant-notification-notice-icon-success {
+	color: white !important;
+	display: flex;
+}
+
+.anticon.ant-notification-notice-icon-warning {
+	color: white !important;
+	display: flex;
+}
+.ant-notification-notice-warning {
+	background-color: #faad14 !important;
+	color: white !important;
+}
+
+.anticon.ant-notification-notice-icon-error {
+	color: white !important;
+	display: flex;
+}
+.ant-notification-notice-error {
+	background-color: #ff4d4f !important;
+	color: white !important;
+}

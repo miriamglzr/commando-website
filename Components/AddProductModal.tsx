@@ -13,7 +13,7 @@ import {
 import { allergenIcons } from "../database/allergens";
 //import UploadImage from "./UploadImage";
 import { checkProduct } from "./checkProduct";
-import { useAppCtx } from "../context.tsx/Products";
+import { useAppCtx } from "../context.tsx/Context";
 import { AddProduct } from "./layout.styles";
 
 const { Option } = Select;
@@ -32,21 +32,20 @@ export default function AddProductModal() {
 	const [confirmLoading, setConfirmLoading] = useState(false);
 	const [form] = Form.useForm();
 	const productContext = useAppCtx();
-
-	//const { buttonName, updateProduct } = props;
 	const [loading, setLoading] = useState(false);
-	// const { menu } = props;
 
 	// Add a product
 	const onFinish = async (values: any) => {
+		await enterLoading();
 		console.log(values);
 		let verified = await checkProduct.add(values);
 		console.log(verified);
 		if (typeof verified !== "string") {
 			productContext?.onProductCreated(verified);
+			await handleOk();
+		} else {
+			productContext?.sendNotification(verified, "error");
 		}
-		await enterLoading();
-		//	await handleOk();
 	};
 
 	const onReset = () => {
@@ -57,7 +56,7 @@ export default function AddProductModal() {
 		setLoading(true);
 		setTimeout(() => {
 			setLoading(false);
-		}, 6000);
+		}, 2000);
 	};
 
 	const showModal = () => {
@@ -70,7 +69,7 @@ export default function AddProductModal() {
 			setIsModalVisible(false);
 			setConfirmLoading(false);
 			onReset();
-		}, 2000);
+		}, 1500);
 	};
 
 	const handleCancel = () => {
@@ -78,13 +77,6 @@ export default function AddProductModal() {
 	};
 	const onChange = (checkedValues: any) => {
 		console.log("checked = ", checkedValues);
-		// console.log (data.allergens);
-		// console.log (allergenIcons);
-		// allergenIcons.map (allergen => {
-		//   return data.allergens.includes (allergen.name)
-		//     ? console.log (allergen)
-		//     : false;
-		// });
 	};
 
 	return (
@@ -106,11 +98,7 @@ export default function AddProductModal() {
 				confirmLoading={confirmLoading}
 			>
 				<Form {...layout} form={form} name="control-hooks" onFinish={onFinish}>
-					<Form.Item
-						name="name"
-						label="Product Name"
-						//rules={!buttonName && [{ required: true }]}
-					>
+					<Form.Item name="name" label="Product Name">
 						<Input maxLength={50} />
 					</Form.Item>
 					<Form.Item

@@ -1,8 +1,8 @@
 export const checkProduct = {
 	add: async function (product: Product) {
 		console.log("check my product");
-		if (product.name === "") {
-			return "There was an error";
+		if (!product.name || product.name === "") {
+			return "Please enter a name";
 		}
 		if (!product.allergens) {
 			product.allergens = [];
@@ -20,6 +20,9 @@ export const checkProduct = {
 		}
 		if (!product.type) {
 			product.type = "food";
+		}
+		if (!product.description) {
+			product.description = "";
 		}
 		if (!product.spicy_level) {
 			product.spicy_level = 0;

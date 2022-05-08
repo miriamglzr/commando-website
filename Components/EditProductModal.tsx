@@ -15,7 +15,7 @@ import { allergenIcons } from "../database/allergens";
 //import UploadImage from "./UploadImage";
 import { checkProduct } from "./checkProduct";
 import ItemCard from "./ItemCard";
-import { useAppCtx } from "../context.tsx/Products";
+import { useAppCtx } from "../context.tsx/Context";
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -37,6 +37,7 @@ function EditProduct({ data }: { data: any }) {
 
 	// Update a product
 	const onUpdate = async (values: any) => {
+		await enterLoading();
 		console.log("update");
 		await console.log(values);
 
@@ -51,10 +52,10 @@ function EditProduct({ data }: { data: any }) {
 		console.log(verified);
 		if (typeof verified !== "string") {
 			await productContext?.onProductUpdated(verified);
+			await handleOk();
+		} else {
+			productContext?.sendNotification(verified, "error");
 		}
-
-		await enterLoading();
-		await handleOk();
 	};
 
 	const onReset = () => {
@@ -65,7 +66,7 @@ function EditProduct({ data }: { data: any }) {
 		setLoading(true);
 		setTimeout(() => {
 			setLoading(false);
-		}, 6000);
+		}, 2000);
 	};
 
 	const showModal = () => {

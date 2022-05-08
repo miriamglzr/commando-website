@@ -7,7 +7,7 @@ import {
 import { motion } from "framer-motion";
 import ItemCard from "../../Components/ItemCard";
 import { Page } from "../../Components/Page";
-import { useAppCtx } from "../../context.tsx/Products";
+import { useAppCtx } from "../../context.tsx/Context";
 import fakeMenu from "../../database/fakeMenu.json";
 import { AddProduct } from "../../Components/layout.styles";
 import Link from "next/link";
@@ -48,8 +48,11 @@ export default function Menu() {
 		<Page>
 			<title>Mando | Menu</title>
 			<div className="col">
-				<div className="d-flex container justify-content-end">
-					<div className="d-flex justify-content-end">
+				<div className="row d-flex container">
+					<div className="col d-flex justify-content-start mt-4">
+						<h4>Menu</h4>
+					</div>
+					<div className="col d-flex justify-content-end">
 						<AddProductModal />
 					</div>
 				</div>
