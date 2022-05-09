@@ -108,7 +108,7 @@ export default function AddProductModal() {
 					>
 						<Select
 							placeholder="Select an option and change input text above"
-							onChange={(option) => console.log(option)}
+							//onChange={(option) => console.log(option)}
 							allowClear
 						>
 							<Option value={1}>De Maíz</Option>
