@@ -11,11 +11,10 @@ import {
 	Radio,
 } from "antd";
 import { allergenIcons } from "../database/allergens";
-//import UploadImage from "./UploadImage";
 import { checkProduct } from "./checkProduct";
 import ItemCard from "./ItemCard";
 import { useAppCtx } from "../context.tsx/Context";
-
+//reminder missing import to upload Image
 const { Option } = Select;
 const { TextArea } = Input;
 
@@ -106,21 +105,12 @@ function EditProduct({ data }: { data: any }) {
 				confirmLoading={confirmLoading}
 			>
 				<Form {...layout} form={form} name="control-hooks" onFinish={onUpdate}>
-					<Form.Item
-						name="name"
-						label="Product Name"
-						//rules={!buttonName && [{ required: true }]}
-					>
+					<Form.Item name="name" label="Product Name">
 						<Input defaultValue={data ? data.name : ""} maxLength={50} />
 					</Form.Item>
-					<Form.Item
-						name="section_id"
-						label="Section"
-						//rules={!buttonName && [{ required: true }]}
-					>
+					<Form.Item name="section_id" label="Section">
 						<Select
 							placeholder="Select an option and change input text above"
-							//onChange={(option) => console.log(option)}
 							allowClear
 							defaultValue={data ? data.section_id : ""}
 						>
@@ -135,31 +125,19 @@ function EditProduct({ data }: { data: any }) {
 					>
 						{({ getFieldValue }) =>
 							getFieldValue("section") === "other" ? (
-								<Form.Item
-									name="customizeSection"
-									label="Customize Section"
-									//rules={!buttonName && [{ required: true }]}
-								>
+								<Form.Item name="customizeSection" label="Customize Section">
 									<Input />
 								</Form.Item>
 							) : null
 						}
 					</Form.Item>
-					<Form.Item
-						name="description"
-						label="Description"
-						//rules={!buttonName && [{required: true}]}
-					>
+					<Form.Item name="description" label="Description">
 						<TextArea
 							defaultValue={data ? data.description : ""}
 							maxLength={102}
 						/>
 					</Form.Item>
-					<Form.Item
-						name="price"
-						label="Price"
-						//rules={!buttonName && [{ required: true }]}
-					>
+					<Form.Item name="price" label="Price">
 						<Input
 							defaultValue={data ? data.price : ""}
 							type="number"
@@ -176,17 +154,7 @@ function EditProduct({ data }: { data: any }) {
 								{allergenIcons.map((allergen, i) => {
 									return (
 										<Col span={8} key={i}>
-											<Checkbox
-												value={allergen.name}
-												checked={true}
-												// defaultChecked={[1]
-												// // data &&
-												// //   data.allergens.length &&
-												// //   data.allergens.includes (allergen.name)
-												// //   ? [allergen.id]
-												// //   : []
-												// }
-											>
+											<Checkbox value={allergen.name} checked={true}>
 												{allergen.name}
 											</Checkbox>
 										</Col>
@@ -196,11 +164,7 @@ function EditProduct({ data }: { data: any }) {
 						</Checkbox.Group>
 					</Form.Item>
 					<Form.Item name="diet" label="Diet">
-						<Checkbox.Group
-							style={{ width: "100%" }}
-							onChange={onChange}
-							//defaultValue={data && data.diet ? data.diet : ""}
-						>
+						<Checkbox.Group style={{ width: "100%" }} onChange={onChange}>
 							<Row>
 								<Col span={8}>
 									<Checkbox value="vegan">Vegan</Checkbox>

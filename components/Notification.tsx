@@ -4,7 +4,7 @@ import { useAppCtx } from "../context.tsx/Context";
 
 export default function Notification() {
 	const appCtxt = useAppCtx();
-	const [count, setCount] = useState(0); // maxCount of notifications api not working
+	const [count, setCount] = useState(0);
 
 	const openNotification = () => {
 		setCount(1);
@@ -14,7 +14,7 @@ export default function Notification() {
 			message: ` ${appCtxt?.appNotification.message}`,
 			placement: "bottomRight",
 			className: "notification",
-			//maxCount: 1,
+			//maxCount: 1,// maxCount of notifications api not working
 		});
 		setTimeout(() => {
 			appCtxt?.clearNotifications();

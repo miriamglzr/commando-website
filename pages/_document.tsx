@@ -63,12 +63,12 @@ export default class MyDocument extends Document {
 						rel="stylesheet"
 						href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 						integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-						// crossorigin="anonymous"
+						crossOrigin="anonymous"
 					/>
 					{/*<!-- FONT AWESOME --> */}
 					<Script
 						src="https://kit.fontawesome.com/856c5d3b66.js"
-						//crossorigin="anonymous"
+						crossOrigin="anonymous"
 					></Script>
 					{/* <meta
 					  name="viewport"

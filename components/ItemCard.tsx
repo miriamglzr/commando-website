@@ -1,7 +1,6 @@
 import React from "react";
 import { Avatar, Tooltip, Card } from "antd";
 import { allergenIcons } from "../database/allergens";
-//import { StaticImageData } from "next/image";
 
 type Allergen = {
 	id: number;
@@ -35,7 +34,6 @@ const itemAllergens = (values: any) => {
 	return (
 		<span>
 			{values.map((tag: any) => {
-				//let icon: StaticImageData;
 				allergenIcons.map((allergen) => {
 					if (tag === allergen.name) {
 						return (

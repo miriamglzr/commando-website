@@ -11,11 +11,10 @@ import {
 	Radio,
 } from "antd";
 import { allergenIcons } from "../database/allergens";
-//import UploadImage from "./UploadImage";
 import { checkProduct } from "./checkProduct";
 import { useAppCtx } from "../context.tsx/Context";
 import { AddProduct } from "./layout.styles";
-
+//reminder missing import to upload Image
 const { Option } = Select;
 const { TextArea } = Input;
 
@@ -101,14 +100,9 @@ export default function AddProductModal() {
 					<Form.Item name="name" label="Product Name">
 						<Input maxLength={50} />
 					</Form.Item>
-					<Form.Item
-						name="section_id"
-						label="Section"
-						//rules={!buttonName && [{ required: true }]}
-					>
+					<Form.Item name="section_id" label="Section">
 						<Select
 							placeholder="Select an option and change input text above"
-							//onChange={(option) => console.log(option)}
 							allowClear
 						>
 							<Option value={1}>De Maíz</Option>
@@ -122,28 +116,16 @@ export default function AddProductModal() {
 					>
 						{({ getFieldValue }) =>
 							getFieldValue("section") === "other" ? (
-								<Form.Item
-									name="customizeSection"
-									label="Customize Section"
-									//rules={!buttonName && [{ required: true }]}
-								>
+								<Form.Item name="customizeSection" label="Customize Section">
 									<Input />
 								</Form.Item>
 							) : null
 						}
 					</Form.Item>
-					<Form.Item
-						name="description"
-						label="Description"
-						//rules={!buttonName && [{required: true}]}
-					>
+					<Form.Item name="description" label="Description">
 						<TextArea maxLength={102} />
 					</Form.Item>
-					<Form.Item
-						name="price"
-						label="Price"
-						//rules={!buttonName && [{ required: true }]}
-					>
+					<Form.Item name="price" label="Price">
 						<Input type="number" pattern="[0-9].," suffix="EUR" min="0" />
 
 						{/* prefix="€" */}
@@ -164,11 +146,7 @@ export default function AddProductModal() {
 						</Checkbox.Group>
 					</Form.Item>
 					<Form.Item name="diet" label="Diet">
-						<Checkbox.Group
-							style={{ width: "100%" }}
-							onChange={onChange}
-							//defaultValue={data && data.diet ? data.diet : ""}
-						>
+						<Checkbox.Group style={{ width: "100%" }} onChange={onChange}>
 							<Row>
 								<Col span={8}>
 									<Checkbox value="vegan">Vegan</Checkbox>
