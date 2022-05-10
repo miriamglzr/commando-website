@@ -5,13 +5,16 @@ import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/globals.css";
 import { AppCtxProvider } from "../context.tsx/Context";
+import Layout from "../components/Layout";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
 	return (
 		<AppCtxProvider>
-			<AnimatePresence exitBeforeEnter>
-				<Component key={router.asPath} {...pageProps} />
-			</AnimatePresence>
+			<Layout>
+				<AnimatePresence exitBeforeEnter>
+					<Component key={router.asPath} {...pageProps} />
+				</AnimatePresence>
+			</Layout>
 		</AppCtxProvider>
 	);
 }

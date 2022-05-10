@@ -1,6 +1,4 @@
 import { ReactNode } from "react";
-
-import Layout from "./Layout";
 import { Transition } from "./Transition";
 
 interface PageProps {
@@ -8,8 +6,6 @@ interface PageProps {
 	home?: boolean;
 }
 
-export const Page = ({ children, home }: PageProps) => (
-	<Layout home>
-		<Transition>{children}</Transition>
-	</Layout>
+export const Page = ({ children }: PageProps) => (
+	<Transition>{children}</Transition>
 );

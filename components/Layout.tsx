@@ -7,25 +7,16 @@ import Notification from "./Notification";
 
 type DashboardLayoutProps = {
 	children: ReactNode;
-	home?: boolean;
 };
 
-export default function Layout({ children, home }: DashboardLayoutProps) {
-	const navRef = useRef<HTMLElement | null>(null);
+export default function Layout({ children }: DashboardLayoutProps) {
+	const navRef = useRef<HTMLAnchorElement>();
 	const [y, setY] = useState(-133);
 
 	return (
 		<div className="App">
-			{!home && (
-				<div className="backToHome">
-					<Link href="/">
-						<a>← Back to home</a>
-					</Link>
-				</div>
-			)}
-
 			<Sidenav className="sidenav" style={{ flexDirection: "column" }}>
-				<Link href="/">
+				<Link href="/" ref={navRef}>
 					<NavbarLogo>MANDO</NavbarLogo>
 				</Link>
 				<Link href="/">
@@ -36,7 +27,7 @@ export default function Layout({ children, home }: DashboardLayoutProps) {
 						Home
 					</ButtonCol>
 				</Link>
-				<Link href="/menu">
+				<Link href="/menu" ref={navRef}>
 					<ButtonCol
 						className="row"
 						onMouseEnter={(event) => setY(event.currentTarget.offsetTop - 197)}
@@ -44,7 +35,7 @@ export default function Layout({ children, home }: DashboardLayoutProps) {
 						Menu
 					</ButtonCol>
 				</Link>
-				<Link href="/tables">
+				<Link href="/tables" ref={navRef}>
 					<ButtonCol
 						className="row"
 						onMouseEnter={(event) => setY(event.currentTarget.offsetTop - 197)}
