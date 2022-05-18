@@ -58,6 +58,11 @@ export default class MyDocument extends Document {
 						href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&family=Inter:wght@100;200;300;400;500;700&display=swap"
 						rel="stylesheet"
 					/>
+
+					<link
+						href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;900&family=Jost:wght@400;500;600&family=PT+Serif:wght@700&display=swap"
+						rel="stylesheet"
+					></link>
 					{/* <!-- BOOTSTRAP--> */}
 					<link
 						rel="stylesheet"
