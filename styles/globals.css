@@ -10,6 +10,7 @@ body {
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	background: #f37945;
 	overflow-x: hidden;
+	/* cursor: url("/circle-cursor.png"), auto !important; */
 }
 .App {
 	flex-direction: column;
@@ -86,19 +87,38 @@ p {
 	color: white !important;
 }
 
-#outer-dropzone {
-	height: 400px;
-	min-width: 594px;
-	max-width: 655px;
-	margin: 38px;
+.cursor {
+	width: 20px;
+	height: 20px;
+	/* border: 1px solid white; */
+	border-radius: 50%;
+	position: absolute;
+	pointer-events: none;
 }
-
-.dropzone {
-	background-color: #f1f0f0;
-	border: dashed 4px transparent;
-	border-radius: 4px;
-	/* //margin: 10px auto 30px; */
-	padding: 10px;
-	color: rgb(211, 209, 209);
-	transition: background-color 0.3s;
+.cursor::after {
+	content: "";
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	border: 2px solid #ffe602;
+	border-radius: 50%;
+	opacity: 0.5;
+	top: -8px;
+	left: -8px;
+}
+@keyframes cursorAnim {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(2);
+		border-color: white;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 0;
+	}
+}
+.expand {
+	animation: cursorAnim 0.5s forwards;
 }

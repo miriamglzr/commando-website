@@ -18,7 +18,7 @@ export const NavbarLogo = styled.a`
 	margin-left: 10px;
 	padding-top: 10px;
 	display: flex;
-	color: rgba(255, 255, 255, 0.79) !important;
+	color: white !important;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 26px;
@@ -35,9 +35,9 @@ export const ButtonCol = styled.a`
 	justify-content: center;
 	font-weight: 500;
 	padding: 0px 10px;
-	color: rgba(255, 255, 255, 0.79) !important;
+	color: rgba(255, 255, 255, 0.6) !important;
 
 	&:hover {
-		color: #dbdbdb !important;
+		color: white !important;
 	}
 `;

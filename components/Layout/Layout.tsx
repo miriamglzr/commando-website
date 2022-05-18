@@ -30,7 +30,7 @@ export default function Layout({ children }: DashboardLayoutProps) {
 					</div>
 				</Navbar>
 
-				<div className="row">
+				<div className="row w-100">
 					<div
 						style={{
 							minHeight: "90vh",
