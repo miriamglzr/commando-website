@@ -7,9 +7,9 @@ interface PageProps {
 
 export const Transition = ({ children }: PageProps) => (
 	<motion.div
-		initial={{ y: -15, opacity: 0 }}
-		animate={{ y: 0, opacity: 1 }}
-		exit={{ y: 15, opacity: 0 }}
+		initial={{ x: -15, opacity: 0 }}
+		animate={{ x: 0, opacity: 1 }}
+		exit={{ x: 15, opacity: 0 }}
 		transition={{ type: "spring", bounce: 0, duration: 0.15 }}
 	>
 		{children}

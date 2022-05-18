@@ -6,16 +6,21 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../styles/globals.css";
 import { AppCtxProvider } from "../context.tsx/Context";
 import Layout from "../components/Layout/Layout";
+import { ApolloProvider } from "@apollo/client";
+
+import { client } from "../apollo";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
 	return (
-		<AppCtxProvider>
-			<Layout>
-				<AnimatePresence exitBeforeEnter>
-					<Component key={router.asPath} {...pageProps} />
-				</AnimatePresence>
-			</Layout>
-		</AppCtxProvider>
+		<ApolloProvider client={client}>
+			<AppCtxProvider>
+				<Layout>
+					<AnimatePresence exitBeforeEnter>
+						<Component key={router.asPath} {...pageProps} />
+					</AnimatePresence>
+				</Layout>
+			</AppCtxProvider>
+		</ApolloProvider>
 	);
 }
 

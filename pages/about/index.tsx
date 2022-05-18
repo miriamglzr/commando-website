@@ -1,3 +1,4 @@
+import AboutSections from "../../components/About/AboutSections";
 import { Page } from "../../components/Layout/Page";
 
 export default function About() {
@@ -6,6 +7,7 @@ export default function About() {
 			<title>Mando | About</title>
 			<div className="container mw-100">
 				<h4>About</h4>
+				<AboutSections />
 			</div>
 		</Page>
 	);

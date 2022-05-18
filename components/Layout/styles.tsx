@@ -35,7 +35,7 @@ export const ButtonCol = styled.a`
 	justify-content: center;
 	font-weight: 500;
 	padding: 0px 10px;
-	color: rgba(255, 255, 255, 0.79)
+	color: rgba(255, 255, 255, 0.79) !important;
 
 	&:hover {
 		color: #dbdbdb !important;
