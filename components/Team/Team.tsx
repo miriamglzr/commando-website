@@ -14,23 +14,22 @@ export default function TeamMembers({ member }) {
 	Howler.volume(0.1);
 
 	useEffect(() => {
-		playSound("/pop.mp3");
-		setRender(true);
+		const syncItems = async () => {
+			await playSound("/pop.mp3");
+			await setRender(true);
+		};
+		syncItems();
 	}, []);
 
 	return (
-		<div className="container d-flex justify-content-center">
-			<div className="row">
-				<motion.div
-					className="col"
-					initial={{ scale: 0 }}
-					animate={render && { scale: 1 }}
-				>
-					<img src={member.avatar.url} alt={member.name} width={300} />
-					<h4>{member.name}</h4>
-					<p>{member.position}</p>
-				</motion.div>
-			</div>
-		</div>
+		<motion.div
+			className="col"
+			initial={{ scale: 0 }}
+			animate={render && { scale: 1 }}
+		>
+			<img src={member.avatar.url} alt={member.name} width={300} />
+			<h4>{member.name}</h4>
+			<p>{member.position}</p>
+		</motion.div>
 	);
 }

@@ -45,22 +45,21 @@ const Home: NextPage = () => {
 		<Page home>
 			<title>Mando</title>
 			<div className="container d-flex align-items-center justify-content-center h-100">
-				<div className="col d-flex flex-col flex-wrap">
+				<div className="col-lg d-flex flex-col flex-wrap pt-5">
 					<motion.div
 						style={{
 							maxHeight: 100,
-							overflowY: "hidden",
+							overflow: "hidden",
 							alignContent: "end",
 							display: "flex",
 							flexDirection: "column",
 							paddingTop: "20px",
 						}}
-						variants={listVariants}
+						// variants={listVariants}
 					>
 						<motion.h1
 							className="text-start"
-							//initial={{ y: 0, opacity: 1 }}
-							animate={{ y: [0, -100], opacity: [1, 0] }}
+							animate={{ y: [-20, -100], opacity: [1, 0] }}
 							transition={{
 								type: "spring",
 								duration: 0.8,
@@ -72,18 +71,18 @@ const Home: NextPage = () => {
 								lineHeight: 0.8,
 								color: "white",
 							}}
-							variants={itemVariants}
+							//variants={itemVariants}
 						>
 							Easy
 						</motion.h1>
 						<motion.h1
 							className="text-start"
 							initial={{ y: 100, opacity: 0 }}
-							animate={{ y: [0, -90, -200], opacity: [0, 1, 0] }}
+							animate={{ y: [0, -110, -110, -200], opacity: [0, 1, 1, 0] }}
 							transition={{
 								type: "spring",
-								duration: 2,
-								delay: 1,
+								duration: 2.5,
+								delay: 1.3,
 							}}
 							style={{
 								fontSize: "64px",
@@ -91,7 +90,7 @@ const Home: NextPage = () => {
 								lineHeight: 0.8,
 								color: "white",
 							}}
-							variants={itemVariants}
+							//variants={itemVariants}
 						>
 							Fast
 						</motion.h1>
@@ -101,7 +100,7 @@ const Home: NextPage = () => {
 							transition={{
 								type: "spring",
 								duration: 2,
-								delay: 1,
+								delay: 2,
 							}}
 							style={{
 								fontSize: "64px",
@@ -109,7 +108,7 @@ const Home: NextPage = () => {
 								lineHeight: 0.8,
 								color: "white",
 							}}
-							variants={itemVariants}
+							//variants={itemVariants}
 						>
 							Simple
 						</motion.h1>
@@ -139,25 +138,42 @@ const Home: NextPage = () => {
 						phone.
 					</p>
 				</div>
-				<div className="col">
-					<div style={{ maxWidth: 500 }}>
+				<div className="col-lg">
+					<div style={{ maxWidth: 500, position: "absolute", top: 0 }}>
+						<img
+							src="/spot.png"
+							alt="spot"
+							style={{
+								maxWidth: "110%",
+								position: "relative",
+								transform: "translate(-10%,-45%)",
+							}}
+						/>
 						<Trace />
-						<motion.img
-							initial={{ x: 20, opacity: 0 }}
-							animate={{ x: 0, opacity: 1 }}
-							transition={{ type: "spring", duration: 1, delay: 0.2 }}
-							src="/landingIphone.svg"
-							alt="Landing Page Iphone"
-							width={220}
-						/>
-						<motion.img
-							initial={{ x: 20, opacity: 0 }}
-							animate={{ x: 0, opacity: 1 }}
-							transition={{ type: "spring", duration: 1, delay: 0.2 }}
-							src="/menuIphone.svg"
-							alt="Menu Page Iphone"
-							width={220}
-						/>
+						<div
+							style={{
+								position: "relative",
+								transform: "translate(-10%,-350%)",
+								overflow: "hidden",
+							}}
+						>
+							<motion.img
+								initial={{ x: 20, opacity: 0 }}
+								animate={{ x: 0, opacity: 1 }}
+								transition={{ type: "spring", duration: 1, delay: 0.8 }}
+								src="/landingIphone.svg"
+								alt="Landing Page Iphone"
+								width={220}
+							/>
+							<motion.img
+								initial={{ x: 20, opacity: 0 }}
+								animate={{ x: 0, opacity: 1 }}
+								transition={{ type: "spring", duration: 1, delay: 1 }}
+								src="/menuIphone.svg"
+								alt="Menu Page Iphone"
+								width={220}
+							/>
+						</div>
 					</div>
 				</div>
 			</div>

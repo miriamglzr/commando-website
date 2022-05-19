@@ -34,14 +34,12 @@ export async function getStaticProps() {
 }
 
 export default function About({ sections }) {
-	console.log(sections);
 	return (
 		<Page>
 			<title>Mando | About</title>
 			<div className="container mw-100">
-				<h4>About</h4>
 				{sections.map((section) => (
-					<AboutSections section={section} />
+					<AboutSections section={section} key={section.id} />
 				))}
 			</div>
 		</Page>
