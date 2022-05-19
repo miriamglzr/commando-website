@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 import { NavbarLogo, ButtonCol, Navbar } from "./styles";
-import Notification from "../Notification";
 
 type DashboardLayoutProps = {
 	children: ReactNode;
@@ -41,7 +40,6 @@ export default function Layout({ children }: DashboardLayoutProps) {
 						}}
 					>
 						{children}
-						<Notification />
 					</div>
 				</div>
 			</div>

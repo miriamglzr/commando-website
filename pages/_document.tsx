@@ -70,11 +70,6 @@ export default class MyDocument extends Document {
 						integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 						crossOrigin="anonymous"
 					/>
-					{/*<!-- FONT AWESOME --> */}
-					<Script
-						src="https://kit.fontawesome.com/856c5d3b66.js"
-						crossOrigin="anonymous"
-					></Script>
 				</Head>
 				<body>
 					<Main />

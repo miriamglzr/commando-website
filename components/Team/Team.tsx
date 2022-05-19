@@ -1,35 +1,46 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Howl, Howler } from "howler";
+
+import { NameTitle, Position } from "./styles";
 
 export default function TeamMembers({ member }) {
 	const [render, setRender] = useState(false);
-	const playSound = (sound: any) => {
-		const audio = new Howl({
-			src: [sound],
-		});
-
-		audio.play();
-	};
-	Howler.volume(0.1);
+	const [hovered, setHovered] = useState(false);
 
 	useEffect(() => {
-		const syncItems = async () => {
-			await playSound("/pop.mp3");
-			await setRender(true);
-		};
-		syncItems();
+		setRender(true);
 	}, []);
 
 	return (
 		<motion.div
-			className="col"
+			className="col mx-5"
 			initial={{ scale: 0 }}
 			animate={render && { scale: 1 }}
 		>
-			<img src={member.avatar.url} alt={member.name} width={300} />
-			<h4>{member.name}</h4>
-			<p>{member.position}</p>
+			<motion.img
+				src={member.avatar.url}
+				alt={member.name}
+				width={300}
+				onMouseEnter={() => {
+					setHovered(true);
+				}}
+				onMouseLeave={() => setHovered(false)}
+				style={{
+					cursor: "pointer",
+					zIndex: 3,
+					filter: "drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.25))",
+				}}
+				whileHover={{ scale: 1.1 }}
+			/>
+
+			<motion.div
+				initial={{ y: -200, opacity: 0 }}
+				animate={hovered && { y: 0, opacity: 1 }}
+				style={{ zIndex: 2 }}
+			>
+				<NameTitle>{member.name}</NameTitle>
+				<Position>{member.position}</Position>
+			</motion.div>
 		</motion.div>
 	);
 }

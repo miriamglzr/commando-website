@@ -1,44 +1,7 @@
 import type { NextPage } from "next";
-//variants for the animation
-//trace animation
-//use SWR to fetch data SSR or SSG
 import { Page } from "../components/Layout/Page";
 import { motion } from "framer-motion";
 import Trace from "../components/Trace/Trace";
-
-const itemVariants = {
-	hidden: {
-		opacity: 0,
-		y: -100,
-		transition: {
-			ease: "easeIn",
-		},
-	},
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: {
-			mass: 3,
-		},
-	},
-};
-
-const listVariants = {
-	hidden: {
-		opacity: 0,
-		transition: {
-			when: "afterChildren",
-			staggerChildren: 2,
-		},
-	},
-	visible: {
-		opacity: 1,
-		transition: {
-			when: "beforeChildren",
-			staggerChildren: 2,
-		},
-	},
-};
 
 const Home: NextPage = () => {
 	return (
@@ -55,7 +18,6 @@ const Home: NextPage = () => {
 							flexDirection: "column",
 							paddingTop: "20px",
 						}}
-						// variants={listVariants}
 					>
 						<motion.h1
 							className="text-start"
@@ -63,7 +25,7 @@ const Home: NextPage = () => {
 							transition={{
 								type: "spring",
 								duration: 0.8,
-								delay: 1.2,
+								delay: 2.2,
 							}}
 							style={{
 								fontSize: "64px",
@@ -71,7 +33,6 @@ const Home: NextPage = () => {
 								lineHeight: 0.8,
 								color: "white",
 							}}
-							//variants={itemVariants}
 						>
 							Easy
 						</motion.h1>
@@ -82,7 +43,7 @@ const Home: NextPage = () => {
 							transition={{
 								type: "spring",
 								duration: 2.5,
-								delay: 1.3,
+								delay: 2.3,
 							}}
 							style={{
 								fontSize: "64px",
@@ -90,7 +51,6 @@ const Home: NextPage = () => {
 								lineHeight: 0.8,
 								color: "white",
 							}}
-							//variants={itemVariants}
 						>
 							Fast
 						</motion.h1>
@@ -100,7 +60,7 @@ const Home: NextPage = () => {
 							transition={{
 								type: "spring",
 								duration: 2,
-								delay: 2,
+								delay: 3,
 							}}
 							style={{
 								fontSize: "64px",
@@ -108,7 +68,6 @@ const Home: NextPage = () => {
 								lineHeight: 0.8,
 								color: "white",
 							}}
-							//variants={itemVariants}
 						>
 							Simple
 						</motion.h1>

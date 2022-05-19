@@ -6,6 +6,7 @@ export const Cursor = styled.div`
 	border-radius: 50%;
 	position: absolute;
 	pointer-events: none;
+	z-index: 1;
 
 	&::after {
 		content: "";

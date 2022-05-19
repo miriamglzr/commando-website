@@ -3,8 +3,9 @@ import TeamMembers from "../../components/Team/Team";
 import { gql, useQuery } from "@apollo/client";
 import { GetTeamMembersQuery } from "../../generated/graphql";
 
-import { useEffect, useState } from "react";
-import { Howl, Howler } from "howler";
+import { Header } from "../../components/Team/styles";
+import { motion } from "framer-motion";
+const transition = { duration: 2, ease: "easeInOut" };
 
 export const GET_TEAM_MEMBERS = gql`
 	query GetTeamMembers {
@@ -25,9 +26,9 @@ export default function Team() {
 	return (
 		<Page>
 			<title>Mando | Team</title>
-			<div className="container mw-100">
-				<h4>Our Team</h4>
-				<div className="row">
+			<div className="container ">
+				<Header>Our team</Header>
+				<div className="row justify-content-between d-flex ">
 					{data?.teamMembers.map((member) => (
 						<TeamMembers member={member} key={member.id} />
 					))}
