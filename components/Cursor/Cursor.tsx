@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Cursor } from "./styles";
 
 export default function CustomCursor() {
 	const cursorRef = useRef(null);
@@ -20,5 +21,5 @@ export default function CustomCursor() {
 			}, 500);
 		});
 	}, []);
-	return <div className="cursor" ref={cursorRef}></div>;
+	return <Cursor ref={cursorRef}></Cursor>;
 }

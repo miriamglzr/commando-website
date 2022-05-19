@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 //variants for the animation
 //trace animation
-//open
+//use SWR to fetch data SSR or SSG
 import { Page } from "../components/Layout/Page";
 import { motion } from "framer-motion";
-import CustomCursor from "../components/Cursor/Cursor";
+
 const itemVariants = {
 	hidden: {
 		opacity: 0,
@@ -43,7 +43,6 @@ const Home: NextPage = () => {
 		<Page home>
 			<title>Mando</title>
 			<div className="container d-flex align-items-center justify-content-center h-100">
-				<CustomCursor />
 				<div className="col d-flex flex-col flex-wrap">
 					<motion.div
 						style={{

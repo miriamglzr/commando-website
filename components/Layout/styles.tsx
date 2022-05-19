@@ -21,7 +21,7 @@ export const NavbarLogo = styled.a`
 	color: white !important;
 	font-style: normal;
 	font-weight: bold;
-	font-size: 26px;
+	font-size: 24px;
 	line-height: 11px;
 
 	&:hover {

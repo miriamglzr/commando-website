@@ -14,12 +14,12 @@ export default function Layout({ children }: DashboardLayoutProps) {
 				<Navbar className="Navbar row">
 					<div className="col d-flex">
 						<Link href="/">
-							<NavbarLogo>Mando</NavbarLogo>
+							<NavbarLogo>MANDO</NavbarLogo>
 						</Link>
 						<div className="col d-flex justify-content-end mr-5">
-							<Link href="/order">
+							{/* <Link href="/order">
 								<ButtonCol>Order_</ButtonCol>
-							</Link>
+							</Link> */}
 							<Link href="/about">
 								<ButtonCol>About_</ButtonCol>
 							</Link>
