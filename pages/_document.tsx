@@ -75,10 +75,6 @@ export default class MyDocument extends Document {
 						src="https://kit.fontawesome.com/856c5d3b66.js"
 						crossOrigin="anonymous"
 					></Script>
-					{/* <meta
-					  name="viewport"
-					  content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"
-				  /> */}
 				</Head>
 				<body>
 					<Main />

@@ -1,35 +1,13 @@
-import { gql, useQuery } from "@apollo/client";
-
-export const GET_ABOUT_PAGE = gql`
-	query GetAboutPage {
-		pages(where: { url: "/about" }) {
-			sections {
-				heading
-				description {
-					text
-					html
-				}
-			}
-		}
-	}
-`;
-
-export default function AboutSections() {
-	const { data } = useQuery(GET_ABOUT_PAGE);
-
+export default function AboutSections({ section }) {
 	return (
 		<ul>
-			{data?.pages[0].sections.map((section) => {
-				return (
-					<li key={section.heading}>
-						<h4>{section.heading}</h4>
-						{/* //<p>{section.description.text}</p> */}
-						<div
-							dangerouslySetInnerHTML={{ __html: section.description.html }}
-						/>
-					</li>
-				);
-			})}
+			<li key={section.heading}>
+				<h4>{section.heading}</h4>
+				{section.image?.url && (
+					<img src={section.image.url} alt={section.heading} />
+				)}
+				<div dangerouslySetInnerHTML={{ __html: section.description.html }} />
+			</li>
 		</ul>
 	);
 }

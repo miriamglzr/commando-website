@@ -4,6 +4,7 @@ import type { NextPage } from "next";
 //use SWR to fetch data SSR or SSG
 import { Page } from "../components/Layout/Page";
 import { motion } from "framer-motion";
+import Trace from "../components/Trace/Trace";
 
 const itemVariants = {
 	hidden: {
@@ -38,6 +39,7 @@ const listVariants = {
 		},
 	},
 };
+
 const Home: NextPage = () => {
 	return (
 		<Page home>
@@ -138,18 +140,25 @@ const Home: NextPage = () => {
 					</p>
 				</div>
 				<div className="col">
-					<motion.img
-						initial={{ x: 20, opacity: 0 }}
-						animate={{ x: 0, opacity: 1 }}
-						transition={{ type: "spring", duration: 1, delay: 0.2 }}
-						src="/heroLandingSpot.png"
-						alt="spot"
-						style={{
-							left: "-30px",
-							top: "-223px",
-							width: "500px",
-						}}
-					/>
+					<div style={{ maxWidth: 500 }}>
+						<Trace />
+						<motion.img
+							initial={{ x: 20, opacity: 0 }}
+							animate={{ x: 0, opacity: 1 }}
+							transition={{ type: "spring", duration: 1, delay: 0.2 }}
+							src="/landingIphone.svg"
+							alt="Landing Page Iphone"
+							width={220}
+						/>
+						<motion.img
+							initial={{ x: 20, opacity: 0 }}
+							animate={{ x: 0, opacity: 1 }}
+							transition={{ type: "spring", duration: 1, delay: 0.2 }}
+							src="/menuIphone.svg"
+							alt="Menu Page Iphone"
+							width={220}
+						/>
+					</div>
 				</div>
 			</div>
 		</Page>

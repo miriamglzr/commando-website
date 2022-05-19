@@ -1,0 +1,9 @@
+overwrite: true
+schema: "https://api-eu-central-1.graphcms.com/v2/cl345fns355od01xqgs8ugfv9/master"
+documents: "pages/**/*.tsx"
+generates:
+  generated/graphql.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"

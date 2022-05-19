@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/globals.css";
-import { AppCtxProvider } from "../context.tsx/Context";
+
 import Layout from "../components/Layout/Layout";
 import { ApolloProvider } from "@apollo/client";
 
@@ -14,14 +14,12 @@ import CustomCursor from "../components/Cursor/Cursor";
 function MyApp({ Component, pageProps, router }: AppProps) {
 	return (
 		<ApolloProvider client={client}>
-			<AppCtxProvider>
-				<Layout>
-					<CustomCursor />
-					<AnimatePresence exitBeforeEnter>
-						<Component key={router.asPath} {...pageProps} />
-					</AnimatePresence>
-				</Layout>
-			</AppCtxProvider>
+			<Layout>
+				<CustomCursor />
+				<AnimatePresence exitBeforeEnter>
+					<Component key={router.asPath} {...pageProps} />
+				</AnimatePresence>
+			</Layout>
 		</ApolloProvider>
 	);
 }
