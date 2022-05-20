@@ -1,11 +1,12 @@
 import { Page } from "../../components/Layout/Page";
 import TeamMembers from "../../components/Team/Team";
-import { gql, useQuery } from "@apollo/client";
 import { GetTeamMembersQuery } from "../../generated/graphql";
-
 import { Header } from "../../components/Team/styles";
 import { motion } from "framer-motion";
-const transition = { duration: 2, ease: "easeInOut" };
+import { gql, request } from "graphql-request";
+
+const gqlUrl =
+	"https://api-eu-central-1.graphcms.com/v2/cl345fns355od01xqgs8ugfv9/master";
 
 export const GET_TEAM_MEMBERS = gql`
 	query GetTeamMembers {
@@ -20,9 +21,16 @@ export const GET_TEAM_MEMBERS = gql`
 	}
 `;
 
-export default function Team() {
-	const { data } = useQuery<GetTeamMembersQuery>(GET_TEAM_MEMBERS);
+export async function getStaticProps() {
+	const data = await request<GetTeamMembersQuery>(gqlUrl, GET_TEAM_MEMBERS);
 
+	return {
+		props: {
+			teamMembers: data.teamMembers,
+		},
+	};
+}
+export default function Team({ teamMembers }) {
 	return (
 		<Page>
 			<title>Mando | Team</title>
@@ -34,7 +42,7 @@ export default function Team() {
 			>
 				<Header>Our team</Header>
 				<div className="row justify-content-between d-flex ">
-					{data?.teamMembers.map((member) => (
+					{teamMembers.map((member) => (
 						<TeamMembers member={member} key={member.id} />
 					))}
 				</div>

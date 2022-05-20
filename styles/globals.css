@@ -10,7 +10,6 @@ body {
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	background: #f16c34;
 	overflow-x: hidden;
-	/* cursor: url("/circle-cursor.png"), auto !important; */
 }
 .App {
 	flex-direction: column;
@@ -45,47 +44,6 @@ p {
 	font-family: "Jost", sans-serif;
 }
 /*  Modifying ant design */
-.ant-form-item {
-	margin-bottom: 0;
-}
-.ant-modal-body {
-	padding-top: 0;
-}
-.ant-card-body {
-	padding: 10px;
-	min-height: 217px;
-}
-.ant-col-8 {
-	display: flex;
-	justify-content: flex-start;
-}
-.ant-btn {
-	white-space: none;
-}
-.ant-notification-notice .notification {
-	justify-content: space-between !important;
-}
-.ant-notification-notice-message {
-	justify-content: space-between !important;
-	color: white !important;
-}
-.ant-notification-notice-success {
-	background-color: #52c41a !important;
-	color: white !important;
-}
-.anticon.ant-notification-notice-icon-success {
-	color: white !important;
-	display: flex;
-}
-
-.anticon.ant-notification-notice-icon-error {
-	color: white !important;
-	display: flex;
-}
-.ant-notification-notice-error {
-	background-color: #ff4d4f !important;
-	color: white !important;
-}
 
 .expand {
 	animation: cursorAnim 0.5s forwards;

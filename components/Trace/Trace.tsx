@@ -10,7 +10,7 @@ export default function Trace() {
 					position: "relative",
 					left: "50%",
 					transform: "translate(-45%, -110%)",
-					maxWidth: "160%",
+					maxWidth: "170%",
 					minWidth: 300,
 				}}
 				width="842"

@@ -38,7 +38,7 @@ export default function SectionOne({ section }) {
 					className="col ml-5 mw-75"
 					initial={{ x: -100, opacity: 0 }}
 					animate={{ x: 0, opacity: 1 }}
-					transition={{ type: "spring", duration: 1, delay: 1 }}
+					transition={{ type: "spring", duration: 1 }}
 				>
 					<SectionHeading>{section.heading}</SectionHeading>
 					<SectionDescription
@@ -51,9 +51,9 @@ export default function SectionOne({ section }) {
 							src={section.image.url}
 							alt={section.heading}
 							width={350}
-							initial={{ x: 200, opacity: 0 }}
+							initial={{ x: 300, opacity: 0 }}
 							animate={{ x: 0, opacity: 1 }}
-							transition={{ type: "spring", duration: 1, delay: 1 }}
+							transition={{ type: "spring", duration: 1 }}
 							style={{ borderRadius: "3px" }}
 						/>
 					)}

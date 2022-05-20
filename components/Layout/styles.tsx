@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Navbar = styled.div`
 	height: 150;
-	width: 100%;
+	min-width: 100vw;
 	position: fixed;
 	z-index: 1;
 	top: 0;
@@ -36,7 +36,7 @@ export const ButtonCol = styled.a`
 	font-weight: 500;
 	padding: 0px 10px;
 	color: rgba(255, 255, 255, 0.6) !important;
-
+	z-index: 2;
 	&:hover {
 		color: white !important;
 	}
