@@ -16,6 +16,7 @@ export default function TeamMembers({ member }) {
 			className="col mx-5"
 			initial={{ scale: 0 }}
 			animate={render && { scale: 1 }}
+			transition={{ duration: 0.7 }}
 		>
 			<motion.img
 				src={member.avatar.url}

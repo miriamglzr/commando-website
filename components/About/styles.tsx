@@ -23,3 +23,11 @@ export const SectionDescription = styled.div`
 	text-align: start;
 	color: rgba(255, 255, 255, 0.6);
 `;
+
+export const StarSVG = styled.div`
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	top: 30%;
+	positon: relative;
+`;

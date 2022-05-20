@@ -6,6 +6,6 @@ interface PageProps {
 	home?: boolean;
 }
 
-export const Page = ({ children }: PageProps) => (
-	<Transition>{children}</Transition>
+export const Page = ({ home, children }: PageProps) => (
+	<Transition home={home}>{children}</Transition>
 );

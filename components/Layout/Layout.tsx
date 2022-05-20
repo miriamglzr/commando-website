@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 import { NavbarLogo, ButtonCol, Navbar } from "./styles";
+import { useRouter } from "next/router";
 
 type DashboardLayoutProps = {
 	children: ReactNode;
 };
 
 export default function Layout({ children }: DashboardLayoutProps) {
+	const router = useRouter();
+	console.log(router.pathname);
 	return (
 		<div className="App">
 			<div
@@ -29,7 +32,17 @@ export default function Layout({ children }: DashboardLayoutProps) {
 					</div>
 				</Navbar>
 
-				<div className="row w-100">
+				<div
+					className="row w-100"
+					style={
+						router.pathname === "/"
+							? {
+									overflow: "hidden",
+									minHeight: "100vh",
+							  }
+							: {}
+					}
+				>
 					<div
 						style={{
 							minHeight: "90vh",

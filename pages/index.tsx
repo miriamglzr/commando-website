@@ -34,7 +34,7 @@ const Home: NextPage = () => {
 								color: "white",
 							}}
 						>
-							Easy
+							Instant
 						</motion.h1>
 						<motion.h1
 							className="text-start"
@@ -52,7 +52,7 @@ const Home: NextPage = () => {
 								color: "white",
 							}}
 						>
-							Fast
+							Direct
 						</motion.h1>
 						<motion.h1
 							initial={{ y: 100, opacity: 0 }}

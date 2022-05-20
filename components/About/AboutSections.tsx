@@ -7,14 +7,9 @@ export default function AboutSections({ section }) {
 	const scrollRange = [0, 500, 700];
 	const parallaxRange = [0, 300, 500];
 	const parallaxY = useTransform(scrollY, scrollRange, parallaxRange);
-	console.log(parallaxY);
 
 	return (
-		<motion.div
-			// animate={{ y: parallaxRange }}
-
-			style={{ y: parallaxY, width: "100%" }}
-		>
+		<motion.div style={{ y: parallaxY, width: "100%" }}>
 			<SectionWrapper className="row">
 				<div className="col">
 					<SectionHeading>{section.heading}</SectionHeading>

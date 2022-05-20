@@ -26,14 +26,19 @@ export default function Team() {
 	return (
 		<Page>
 			<title>Mando | Team</title>
-			<div className="container ">
+			<motion.div
+				className="container"
+				initial={{ opacity: 0, y: -20 }}
+				animate={{ opacity: 1, y: 0 }}
+				exit={{ opacity: 0, y: 20 }}
+			>
 				<Header>Our team</Header>
 				<div className="row justify-content-between d-flex ">
 					{data?.teamMembers.map((member) => (
 						<TeamMembers member={member} key={member.id} />
 					))}
 				</div>
-			</div>
+			</motion.div>
 		</Page>
 	);
 }
